@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="beginButton">Begin</button>
+
+    <script>
+
+        let button = document.getElementById('beginButton')
+
+        button.addEventListener('click', loginWin)
+
+        function loginWin() {
+        
+                let login = prompt("Who's there?");
+
+                if (login === "Admin") {
+
+                let password = prompt("Password?")
+
+                    if (password === "TheMaster") {
+                        alert("Welcome!")
+                    } else if (login === null || login === "") {
+                        alert("Canceled")
+                    } else {
+                        alert("Wrong password")
+                    }
+
+                } else if (login === null || login === "") {
+                    alert("Canceled")
+                } else {
+                    alert("I don't know you")
+                }
+        }
+
+    </script>
+</body>
+</html>
