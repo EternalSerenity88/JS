@@ -3,21 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calendar</title>
 </head>
 <body>
+
+    <div class="heading"></div>
+        <p>Select Month:</p>
+        <select id="monthSelect">
+            <option value="January">January</option>
+            <option value="February">Febraury</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+    </div>  
+        
+    <h1></h1>
+    <div class="daysCont">
+        <ul></ul>
+    </div>
+  
+
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
 
         const select = document.querySelector('select');
         const list = document.querySelector('ul');
         const h1 = document.querySelector('h1');
 
+      
+
         select.addEventListener('change', () => {
         const choice = select.value;
+        let days;
 
         // ADD CONDITIONAL HERE
-        if (choice === "January" || choice === "March" || choice === "May" || choice === "July" || choice === "October" || choice === "August" || choice === "December") {
-            let days = 31;
+        if (choice === "January" || choice === "March" || choice === "May" || choice === "July" || choice === "October" || choice === "August" || choice === "December") { // (["January", "March", "May", "July", "August", "October", "December"].includes(choice))
+            days = 31;
         } else if (choice === "February") {
             days = 29;
         } else {
@@ -38,6 +67,56 @@
         }
 
         createCalendar(31, 'January'); // Creates initial page before any user's choice
+        });
     </script>
+    <style>
+        * {
+            outline: 1px red solid;
+            font-family: sans-serif;
+        }
+        .heading {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+        }
+        ul {
+            padding: 0px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0px;
+            margin-left: 10px;
+        }
+        li {
+            list-style-type: none; /* Remove bullets */
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid black;
+            min-width: 150px;
+            height: 30px;
+            background-color: purple;
+            color: yellow;
+        }
+        .daysCont {
+            display: flex;
+            width: 700px;
+            padding-top: 0px;
+            margin: 0px;
+        }
+        h1 {
+            margin: 0px;
+            padding: 5px 10px;
+        }
+        select {
+            padding: 5px 10px;
+            margin: 0px;
+            display: inline-block;
+        }
+        p {
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+        }
+    </style>
+    
 </body>
 </html>
